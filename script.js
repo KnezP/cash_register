@@ -2,6 +2,7 @@ const customerCash = document.getElementById("cash");
 const result = document.getElementById("change-due");
 const changeAmount = document.getElementById("change-value");
 const purchaseBtn = document.getElementById("purchase-btn");
+const total = document.getElementById("total-p");
 
 let cid =[
  ["PENNY", 1.01],
@@ -17,6 +18,7 @@ let cid =[
 
 const values = [100, 20, 10, 5, 1, 0.25, 0.1, 0.05, 0.01];
 const price = 3.26;
+total.innerText += ` ${price}`;
 cid.forEach((item) => { changeAmount.innerHTML += `<p id="${item[0]}" class="changes" >${item[0]}: $${item[1]}
 </p>`});
 const checkStatus = () => {
