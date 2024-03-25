@@ -61,7 +61,7 @@ const calcChange = (start, change) => {
             counter++;
         }
         if (change >= 0 && counter > 0) {
-            result.innerText += `${ci[i][0]}:\u00A0$${counter * values[i]}\n`;
+            result.innerText += `${ci[i][0]}: $${counter * values[i]}\n`;
             ci[i][1] = (ci[i][1] - counter * values[i]).toFixed(2);
             update(ci);
         }
