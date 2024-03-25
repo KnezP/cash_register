@@ -27,14 +27,20 @@ const checkStatus = () => {
     } else if (money === price) {
         result.innerText = "No change due - customer paid with exact cash";
     }
-     else if ((amount - ((money-price).toFixed(2))) === 0 || amount === 0) {
+    else if(checkSufficient(money) === 0){
+        result.innerText = "Status: INSUFFICIENT_FUNDS"
+    }
+    else if ((amount - ((money-price).toFixed(2))) === 0 || amount === 0) {
         result.innerText = "Status: CLOSED\n";
+        let change = (money - price).toFixed(2);
+        let startPoint = startingValue(change);
+        calcChange(startPoint, change);
     } else {
         result.innerText = "Status: OPEN\n";
+        let change = (money - price).toFixed(2);
+        let startPoint = startingValue(change);
+        calcChange(startPoint, change);
     } 
-    let change = (money - price).toFixed(2);
-    let startPoint = startingValue(change);
-    calcChange(startPoint, change);
 };
 const calcChangeAvailable = (amountAvailable) => {
     return amountAvailable.reduce((total, item) => total + parseFloat(item[1]), 0);
@@ -61,8 +67,17 @@ const calcChange = (start, change) => {
         counter = 0;
     }
 };
- const checkSufficient = (change,money) => {
-
+ const checkSufficient = (money) => {
+    let counter = 0;
+    let ci = cid;
+    let change = (money - price).toFixed(2);
+    for(let i=0;i< values.length; i++){
+        while (change >= values[i] && (counter + 1) * values[i] <= ci[i][1]) {
+            change = (change - values[i]).toFixed(2);
+            counter ++;
+        }
+    }
+    return counter-1;
  }
 const update = (ci) => {
     changeAmount.innerHTML = '<p><b>Change in drawer:<b></p>';
