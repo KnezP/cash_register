@@ -4,15 +4,15 @@ const changeAmount = document.getElementById("change-value");
 const purchaseBtn = document.getElementById("purchase-btn");
 
 let cid =[
-    ["PENNY", 1.01],
-    ["NICKEL", 2.05],
-    ["DIME", 3.1],
-    ["QUARTER", 4.25],
-    ["ONE", 90],
-    ["FIVE", 55],
-    ["TEN", 20],
-    ["TWENTY", 60],
-    ["ONE HUNDRED", 100]]
+    ["PENNY", 0.5],
+    ["NICKEL", 0],
+    ["DIME", 0],
+    ["QUARTER", 0],
+    ["ONE", 0],
+    ["FIVE", 0],
+    ["TEN", 0],
+    ["TWENTY", 0],
+    ["ONE HUNDRED", 0]]
 
 const values = [100, 20, 10, 5, 1, 0.25, 0.1, 0.05, 0.01];
 const price = 19.5;
@@ -66,7 +66,7 @@ const calcChange = (start, change) => {
  }
 const update = (ci) => {
     changeAmount.innerHTML = '<p><b>Change in drawer:<b></p>';
-    ci.reverse().forEach((item) => {
+    ci.forEach((item) => {
         changeAmount.innerHTML += `<p id="${item[0]}" class="changes" >${item[0]} $${item[1]}</p>`;
     });
 };
