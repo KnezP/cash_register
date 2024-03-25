@@ -16,7 +16,7 @@ let cid =[
 
 const values = [100, 20, 10, 5, 1, 0.25, 0.1, 0.05, 0.01];
 const price = 19.5;
-cid.reverse().forEach((item) => { changeAmount.innerHTML += `<p id="${item[0]}" class="changes" >${item[0]}: $${item[1]}
+cid.forEach((item) => { changeAmount.innerHTML += `<p id="${item[0]}" class="changes" >${item[0]}: $${item[1]}
 </p>`});
 const checkStatus = () => {
     let money = parseFloat(customerCash.value);
@@ -54,7 +54,7 @@ const startingValue = (total) => {
 
 const calcChange = (start, change) => {
     let counter = 0;
-    const ci = cid;
+    const ci = cid.reverse();
     for (let i = start; i < values.length; i++) {
         while (change >= values[i] && (counter + 1) * values[i] <= ci[i][1]) {
             change = (change - values[i]).toFixed(2);
@@ -82,7 +82,7 @@ const calcChange = (start, change) => {
  };
 const update = (ci) => {
     changeAmount.innerHTML = '<p><b>Change in drawer:</b></p>';
-    ci.forEach((item) => {
+    ci.reverse().forEach((item) => {
         changeAmount.innerHTML += `<p id="${item[0]}" class="changes" >${item[0]} $${item[1]}</p>`;
     });
 };
