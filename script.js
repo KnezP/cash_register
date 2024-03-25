@@ -8,7 +8,7 @@ let cid =[
     ["NICKEL", 0],
     ["DIME", 0],
     ["QUARTER", 0],
-    ["ONE", 0],
+    ["ONE", 1],
     ["FIVE", 0],
     ["TEN", 0],
     ["TWENTY", 0],
@@ -67,10 +67,11 @@ const calcChange = (start, change) => {
         }
         counter = 0;
     }
+    cid = ci;
 };
  const checkSufficient = (money) => {
     let counter = 0;
-    let ci = cid;
+    let ci = cid.reverse();
     let change = (money - price).toFixed(2);
     for(let i=0;i< values.length; i++){
         while (change >= values[i] && (counter + 1) * values[i] <= ci[i][1]) {
@@ -78,11 +79,12 @@ const calcChange = (start, change) => {
             counter ++;
         }
     }
+    cid.reverse();
     return counter-1;
  };
-const update = (ci) => {
+const update = (cid) => {
     changeAmount.innerHTML = '<p><b>Change in drawer:</b></p>';
-    ci.reverse().forEach((item) => {
+    cid.reverse().forEach((item) => {
         changeAmount.innerHTML += `<p id="${item[0]}" class="changes" >${item[0]} $${item[1]}</p>`;
     });
 };
