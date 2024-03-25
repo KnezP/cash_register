@@ -1,0 +1,101 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+.input-el{
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+}
+.input-el button{
+    background-color: coral;
+    border: 0;
+    width: 100px;
+    height: 20px;
+    border-radius: 10%;
+    margin: 0 auto;
+    margin-top: 5px;
+}
+p,h2,h3{
+    margin: 10px;
+}
+/* CASH REGISTER */
+.cash-register{
+    background-color: grey;
+    height: 280px;
+    width: 300px;
+    display: flex;
+    flex-direction: row;
+    border-top-left-radius: 15%;
+    border-top-right-radius: 15%;
+}
+.buttons{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    left: 17%;
+}
+ul{
+    margin-right: 20px;
+    margin-top: 30px;
+}
+li{
+    list-style-type: square;
+    font-size: 60px;
+    margin-bottom: -40px
+}
+#change-value{
+    position: relative;
+    left: 10%;
+    top: 10%;
+    background-color: white;
+    height: 230px;
+    width: 200px;
+}
+#change-value b  {
+    margin-top: 20px;
+}
+
+.bottom{
+    background-color: grey;
+    width: 300px;
+    height: 50px;
+    margin-top: 10px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.circle{
+    background-color: black;
+    height: 15px;
+    width: 15px;
+    border-radius: 100%;
+}
+/* CASH REGISTER END */
+.connector{
+    background: grey;
+    height: 30px;
+    width: 30px;
+    margin-right: 180px;
+}
+.total{
+    background-color: grey;
+    padding: 10px;
+    margin-right: 120px;
+}
+.total p{
+   background-color: white;
+   padding: 5px; 
+   border-radius: 10%;
+}
+.changes{
+    margin-bottom: -10px;
+}
