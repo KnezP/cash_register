@@ -52,7 +52,6 @@ const startingValue = (total) => {
 const calcChange = (start, change) => {
     let counter = 0;
     const ci = cid.reverse();
-    console.log(ci)
     let temp = [ cid[6][0], cid[6][1]];
     ci[6][0] = cid[2][0];
     ci[6][1] = cid[2][1];
